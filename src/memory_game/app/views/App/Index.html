@@ -1,0 +1,170 @@
+{{set . "title" "Home"}}
+{{append . "moreScripts" "js/index.js"}}
+{{template "header.html" .}}
+{{set . "width" "130"}}
+{{set . "height" "160"}}
+
+<div class="container-fluid row" style="margin-top: 50px;">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Submit score</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row" style="text-align: center;">
+            <h1 style="color: #008B8B;" id="modalScore"></h1>
+          </div>
+          <form id="form">
+            <div class="group-form">
+              <label for="nickname">Type your nickname:</label>
+              <input id="nickname" type="text" name="nickname" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="submitBtn" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+          <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>   
+    </div>
+  </div>
+
+  <div class="col-xs-3" style="text-align: center;">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">Scoreboard: Top 5</div>
+        <div id="scoreboard" class="panel-body" style="text-align: left;"></div>
+      </div>
+    </div>
+    <div class="row">
+      <input id="startBtn" class="btn btn-primary" type="button" value="Start" />
+      <input id="stopBtn" class="btn btn-danger" type="button" value="Reset!" hidden="true" />
+    </div>
+    <div class="row">
+      <h2 id="scoreboard">
+        <span id="score"></span>
+      </h2>
+      <h1>
+        <span id="plusSpan" style="color: #32CD32;" hidden>+10</span>
+        <span id="minusSpan" style="color: #FF6347;" hidden>-3</span>
+      </h1>
+    </div>
+  </div>
+  <div class="col-xs-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><img src="public/img/crystal.png" alt="Mana Crystals: " height="22" width="22"><span id="mana" class="label label-default">Mana Crystals: 8</span></h4>
+      </div>
+      <div class="panel-body">
+          <div class="row">
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/hellscream.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/hellscream.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/hellscream.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+            <div class="card col-xs-3" style="text-align: center;">
+              <div class="front" hidden>
+                <img src="public/img/squirrel.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+              <div class="back">
+                <img src="public/img/cardback.gif" alt="card back" width="{{.width}}" height ="{{.height}}">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

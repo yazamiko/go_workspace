@@ -1,0 +1,16 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+{{template "nav.html"}}
+
+<div class="container">
+	<header class="jumbotron" style="background-color:#2F4F4F; color: #FFF8DC">
+		<div class="container">
+		  <div class="row" style="text-align: center;">
+		    <h1>{{ .myName }}</h1>
+		  </div>
+		</div>
+	</header>
+	<a class="btn btn-primary" href="/">Back</a>
+</div>
+
+{{template "footer.html" .}}
